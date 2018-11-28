@@ -9,6 +9,7 @@ var server = restify.createServer();
 
 server.use(bodyParser.json());
 try{
+  /*
     server.post('/getMovies',function (request,response)  { 
 
         if(request.body.result.parameters['top-rated']) {
@@ -44,7 +45,7 @@ try{
      
     });
 
-
+*/
     server.get('/getName',function (req,res){
       res.send('Swarup Bam');
   });
