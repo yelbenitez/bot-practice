@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/yellyyy/bot-practice/issues"
   },
-  "homepage": "https://github.com/yellyyy/bot-practice#readme"
+  "homepage": "https://github.com/yellyyy/bot-practice#readme",
+  "dependencies": {
+    "restify": "^7.2.3",
+    "unirest": "^0.5.1"
+  }
 }
