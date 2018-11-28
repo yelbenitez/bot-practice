@@ -2,6 +2,7 @@
 
 var restify = require('restify');
 const bodyParser = require('body-parser');
+const http = require('https');
 var unirest = require("unirest");
 
 var server = restify.createServer();
@@ -9,12 +10,12 @@ var server = restify.createServer();
 server.use(bodyParser.json());
 
 server.post('/getMovies',function (request,response)  {
-  if(request.body.result.parameters['top-rated']) {
+ // if(request.body.result.parameters['top-rated']) {
       var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
           req.query({
               "page": "1",
               "language": "en-US",
-              "api_key": ""
+              "api_key": "736b1708b6070979b841db357f52d2cb"
           });
           req.send("{}");
           req.end(function(res) {
@@ -38,7 +39,8 @@ server.post('/getMovies',function (request,response)  {
                   })); 
               }
           });
-}});
+//}
+});
 
 server.listen(3000, function() {
   console.log('%s listening at %s', server.name, server.url);
