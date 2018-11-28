@@ -4,6 +4,10 @@ var restify = require('restify');
 const bodyParser = require('body-parser');
 const http = require('https');
 var unirest = require("unirest");
+let errorResposne = {
+  results: []
+};
+var port = process.env.PORT || 8080;
 
 var server = restify.createServer();
 
@@ -53,8 +57,8 @@ try{
       console.log(err);
   }
 
-server.listen(3000, function() {
-  console.log('%s listening at %s', server.name, server.url);
+server.listen(port, function () {
+  console.log("Server is up and running...");
 });
 
 /*
