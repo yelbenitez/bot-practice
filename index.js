@@ -41,7 +41,7 @@ try{
                         } response.setHeader('Content-Type', 'application/json');
                           var pass = {
                          //   speech:output,
-                            displayText: output 
+                              fulfillmentText : output
                           }   
                           response.send(pass); 
                     }
