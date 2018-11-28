@@ -16,7 +16,7 @@ try{
   
     server.post('/getMovies',function (request,response)  { 
 
-        if(request.body.result.parameters['top-rated']) {
+    //    if(request.body.result.parameters['top-rated']) {
             var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
                 req.query({
                     "page": "1",
@@ -45,12 +45,12 @@ try{
                         })); 
                     }
                 });
-        }
+     //   }
      
     });
 
 
-    server.get('/getName',function (req,res){
+  server.get('/getName',function (req,res){
       res.send('Swarup Bam');
   });
   }catch(err){
