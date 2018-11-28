@@ -40,7 +40,7 @@ try{
                             output += result[i].title+nextline;
                         } response.setHeader('Content-Type', 'application/json');
                           var pass = {
-                            speech:output,
+                         //   speech:output,
                             displayText: output 
                           }   
                           response.send(pass); 
