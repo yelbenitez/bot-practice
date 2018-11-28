@@ -27,22 +27,23 @@ try{
                 req.end(function(res) {
                     if(res.error) {
                         response.setHeader('Content-Type', 'application/json');
-                        response.send(JSON.stringify({
-                            "speech" : "Error. Can you try it again ? ",
-                            "displayText" : "Error. Can you try it again ? "
-                        }));
+                        var pass = {
+                                    speech:'Error. Can you try it again',
+                                    displayText:'Error. Can you try it again ? '
+                                  }            
+                        response.send(pass);
                     } else if(res.body.results.length > 0) {
                         let result = res.body.results;
                         let output = '';
+                        let nextline = ', ';
                         for(let i = 0; i<result.length;i++) {
-                            output += result[i].title;
-                            output+="\n"
-                        }
-                        response.setHeader('Content-Type', 'application/json');
-                        response.send(JSON.stringify({
-                            "speech" : output,
-                            "displayText" : output
-                        })); 
+                            output += result[i].title+nextline;
+                        } response.setHeader('Content-Type', 'application/json');
+                          var pass = {
+                            speech:output,
+                            displayText: output 
+                          }   
+                          response.send(pass); 
                     }
                 });
      //   }
