@@ -47,7 +47,7 @@ try{
                         } response.setHeader('Content-Type', 'application/json');
                         
                           var pass = {
-                               speech:output,
+                               fulfillment:output,
                                //   fulfillment:  paramet.queryResult.parameters["top-rated"]
                           }   
                           response.send(pass); 
@@ -56,8 +56,7 @@ try{
           }else{
             response.setHeader('Content-Type', 'application/json');
                 var pass = {
-                            speech:'Error. Can you try it again',
-                            displayText:'Error. Can you try it again ? '
+                            fulfillment:'Error. Can you try it again'
                           }            
                 response.send(pass);
           }
