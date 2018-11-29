@@ -12,11 +12,12 @@ var port = process.env.PORT || 8080;
 var server = restify.createServer();
 
 server.use(bodyParser.json());
+
 try{
   
     server.post('/getMovies',function (request,response)  { 
 
-        if(request.body.webhookClient.parameters['top-rated']) {
+        if(request.body.result.parameters['top-rated']) {
             var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
                 req.query({
                     "page": "1",
