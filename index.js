@@ -20,7 +20,7 @@ try{
       
       var paramet = request.body;
      
-          switch(paramet.intent["displayName"]){
+          switch(paramet.queryResult.intent["displayName"]){
               case 'top movies':
                     if(paramet.queryResult.parameters["top-rated"] == 'top-rated') {
                       var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
