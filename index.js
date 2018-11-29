@@ -47,7 +47,7 @@ try{
                         } response.setHeader('Content-Type', 'application/json');
                         
                           var pass = {
-                               fulfillment: output
+                            fulfillmentText : output
                           }   
                           response.send(pass); 
                     }
@@ -55,7 +55,7 @@ try{
           }else{
             response.setHeader('Content-Type', 'application/json');
                 var pass = {
-                             fulfillment :'Error. Can you try it again'
+                             fulfillmentText  :'Error. Can you try it again'
                           }            
                 response.send(pass);
           }
