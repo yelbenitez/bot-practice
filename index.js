@@ -17,9 +17,12 @@ try{
   
     server.post('/getMovies',function (request,response)  { 
 
-        //let parameter = "top-rated";
-       // if(request.params.parameter) {
-         if(request.body.result.parameters['top-rated']){
+      
+      var paramet = request.body;
+     
+
+      if( paramet.queryResult.parameters["top-rated"] == 'top-rated') {
+      //  if(request.body.result.parameters['top-rated']){
             var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
                 req.query({
                     "page": "1",
@@ -42,15 +45,22 @@ try{
                         for(let i = 0; i<result.length;i++) {
                             output += result[i].title+nextline;
                         } response.setHeader('Content-Type', 'application/json');
+                        
                           var pass = {
-                         //   speech:output,
-                              fulfillmentText : output
+                               speech:output,
+                               //   fulfillment:  paramet.queryResult.parameters["top-rated"]
                           }   
                           response.send(pass); 
                     }
                 });
-        }
-     
+          }else{
+            response.setHeader('Content-Type', 'application/json');
+                var pass = {
+                            speech:'Error. Can you try it again',
+                            displayText:'Error. Can you try it again ? '
+                          }            
+                response.send(pass);
+          }
     });
 
 
