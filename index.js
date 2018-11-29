@@ -34,8 +34,9 @@ try{
                               if(res.error) {
                                   response.setHeader('Content-Type', 'application/json');
                                   var pass = {
-                                              speech:'Error. Can you try it again',
-                                              displayText:'Error. Can you try it again ? '
+                                           //   speech:'Error. Can you try it again',
+                                           //   displayText:'Error. Can you try it again ? '
+                                                fulfillmentText: 'Error. Can you try it again ? '
                                             }            
                                   response.send(pass);
                               } else if(res.body.results.length > 0) {
@@ -44,8 +45,8 @@ try{
                                   let nextline = ', ';
                                   for(let i = 0; i<result.length;i++) {
                                       output += result[i].title+nextline;
-                                  } response.setHeader('Content-Type', 'application/json');
-                                  
+                                  } 
+                                    response.setHeader('Content-Type', 'application/json');
                                     var pass = {
                                       fulfillmentText : output
                                     }   
@@ -53,6 +54,22 @@ try{
                               }
                           });
                     }
+              break;
+
+              case 'Default Welcome Intent':
+                    response.setHeader('Content-Type', 'application/json');
+                    var pass = {
+                                  fulfillmentText: 'Hello Im a movie bot! ask me about movies today!'
+                              }            
+                    response.send(pass);
+              break;
+
+              case 'Default Fallback Intent':
+                    response.setHeader('Content-Type', 'application/json');
+                    var pass = {
+                                  fulfillmentText: 'Error. Can you try it again ? '
+                              }            
+                    response.send(pass);
               break;
           }
       });
