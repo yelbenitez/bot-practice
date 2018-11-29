@@ -16,7 +16,7 @@ try{
   
     server.post('/getMovies',function (request,response)  { 
 
-    //    if(request.body.result.parameters['top-rated']) {
+        if(request.body.webhookClient.parameters['top-rated']) {
             var req = unirest("GET", "https://api.themoviedb.org/3/movie/top_rated");
                 req.query({
                     "page": "1",
@@ -46,7 +46,7 @@ try{
                           response.send(pass); 
                     }
                 });
-     //   }
+        }
      
     });
 
